@@ -1,5 +1,3 @@
-# Penetration-testing
-
 In these set of tasks following:
 
 brute forcing </br>
