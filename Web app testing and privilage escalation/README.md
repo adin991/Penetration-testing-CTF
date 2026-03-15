@@ -66,7 +66,7 @@ In the next images, you will see the result of the script. </br>
 ![image alt](https://github.com/adin991/Penetration-testing/blob/339fef39b841275f7e0851d47fcffa9233120aa7/Web%20app%20testing%20and%20privilage%20escalation/src/23.png)</br>
 ![image alt](https://github.com/adin991/Penetration-testing/blob/339fef39b841275f7e0851d47fcffa9233120aa7/Web%20app%20testing%20and%20privilage%20escalation/src/24.png)</br>
 
-Script found private SSH keys. The route of the file is seen. 
+Script found private SSH keys. The route of the file is seen. </br>
 
 ![image alt](https://github.com/adin991/Penetration-testing/blob/339fef39b841275f7e0851d47fcffa9233120aa7/Web%20app%20testing%20and%20privilage%20escalation/src/25.png)</br>
 
@@ -75,14 +75,19 @@ On the first terminal that I accessed, I found the route and opened it the file 
 ![image alt](https://github.com/adin991/Penetration-testing/blob/fa71307c8efb7fa5071a1a556b56793eb4fed912/Web%20app%20testing%20and%20privilage%20escalation/src/27.png)</br>
 ![image alt](https://github.com/adin991/Penetration-testing/blob/fa71307c8efb7fa5071a1a556b56793eb4fed912/Web%20app%20testing%20and%20privilage%20escalation/src/28.png)</br>
 
-I downloaded a script for brute force hashing of the hash that is given in the RSA file document. I copied the hash code on my machine and created a key_id_rsa text file. I started the script [ssh2john.py](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2john.py) for encryption, and now we have another hash that [john script] understands.
+I downloaded a script for brute force hashing of the hash that is given in the RSA file document. I copied the hash code on my machine and created a key_id_rsa text file. I started the script [ssh2john.py](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2john.py) for encryption, and now we have another hash that [john script] understands.</br>
 
 ![image alt](https://github.com/adin991/Penetration-testing/blob/900b10e8af5bd6556d9ea4585d702180e94333e5/Web%20app%20testing%20and%20privilage%20escalation/src/31.png)</br>
 
-Created the .txt file that has an output in a previous picture.
+Created the .txt file that has an output in a previous picture. </br>
 
 ![image alt](https://github.com/adin991/Penetration-testing/blob/37f7a406517d4b68f0fb1b6cb97d0dc6d56f0cbd/Web%20app%20testing%20and%20privilage%20escalation/src/john.png)</br>
-![image alt]()</br>
+
+We are now executing a john command, trying to find a password that matches the hash on rockyou.txt document file. Which functions on the principle that every password in the rockyou.txt file is converted in hash, and now we are matching every hash of the password with our hash in our rsa_id_key dokucment. </br>
+
+![image alt](https://github.com/adin991/Penetration-testing/blob/e8ce9992f411e8188e59c319adb01f6e99f848a1/Web%20app%20testing%20and%20privilage%20escalation/src/john%20execution.png)</br>
+
+
 ![image alt]()</br>
 ![image alt]()</br>
 ![image alt]()</br>
