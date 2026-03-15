@@ -1,8 +1,10 @@
+===============================================================
+
 [COMMAND]: gobuster
 [IN USE]: gobuster dir -u http://[IP adress] -w /usr/share/wordlists/dirb/common.txt
 [DEFINITION]: gobuster is a tool for brute force working with directory's and files on web servers finding hidden web 
 	      pages or files.
-[ADDITIONAL]: -u = URL adress; 
+[ADDITIONAL]: -u = URL adress
 	      -w = file with lists of words that will try
 
 
@@ -23,3 +25,84 @@ gobuster dir -u http://10.10.x.x -w common.txt -t 50
 gobuster dns -d cilj.com -w subdomains.txt
 
 ===============================================================
+
+===============================================================
+
+[COMMAND]: enum4linux
+[IN USE]: enum4linux [IP adress]
+[DEFINITION]: tool throught SMB protocol finding information on Linux or Windows machines.
+[ADDITIONAL]: /
+
+[EXAMPLES]:
+
+# Basic scanning
+enum4linux 10.112.182.26
+
+# Only users
+enum4linux -U 10.112.182.26
+
+# Only groups
+enum4linux -G 10.112.182.26
+
+# Shared folders
+enum4linux -S 10.112.182.26
+
+# OS information
+enum4linux -o 10.112.182.26
+
+# Password policy
+enum4linux -P 10.112.182.26
+
+[ADDITIONAL DEFINITION]: SMB protocol is a shared resource inside of the network. (Files, printers, password policy, folders, Information of the system).
+
+
+===============================================================
+
+===============================================================
+
+[COMMAND]: hydra
+[IN USE]: hydra -l [name of the user] -P /usr/share/wordlists/rockyou.txt ssh://[IP adress]
+[DEFINITION]: hydra is a brute force tool for services that request authentication.
+[ADDITIONAL]: -l = one username
+	      -P = list of passwords
+
+[EXAMPLES]:
+
+# SSH
+hydra -l jan -P /usr/share/wordlists/rockyou.txt ssh://10.112.182.26
+
+# FTP
+hydra -l jan -P /usr/share/wordlists/rockyou.txt ftp://10.112.182.26
+
+# HTTP login form
+hydra -l admin -P /usr/share/wordlists/rockyou.txt http-post-form://10.112.182.26
+
+# RDP (Windows remote desktop)
+hydra -l admin -P /usr/share/wordlists/rockyou.txt rdp://10.112.182.26	
+
+===============================================================
+
+===============================================================
+
+[COMMAND]: scp 
+[IN USE]: 
+[DEFINITION]: scp is a command that copy file between two copmuters using SSH protocol. 
+[ADDITIONAL]:
+
+[EXAMPLES]:
+
+===============================================================
+
+===============================================================
+
+[COMMAND]:
+[IN USE]:
+[DEFINITION]: 
+[ADDITIONAL]:
+
+[EXAMPLES]:
+
+===============================================================
+
+
+
