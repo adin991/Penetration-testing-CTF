@@ -48,10 +48,12 @@ I first tried jan user through the SSH protocol, and I found the password on blu
 
 ![image alt](https://github.com/adin991/Penetration-testing/blob/0a1b0b29ab3abfb07fa42e46673de6e2ccded934/Web%20app%20testing%20and%20privilage%20escalation/src/13.png)</br>
 
-So I enter the jan user with ssh [name]@[IP address], enter the password, and access the user jan. </br>
+So I enter the jan user with ssh [name]@[IP address], enter the password, and access the user jan. Additional research through a hierarchy of the machine I access as jan tried to see what files are available and etc. </br>
+
+I started a script [linpeas.sh](https://github.com/peass-ng/PEASS-ng/releases) downloaded on the link. I used 2 windows of the terminal with the command scp to transfer a script from my machine to a machine I am attacking. 
 
 ![image alt](https://github.com/adin991/Penetration-testing/blob/0a1b0b29ab3abfb07fa42e46673de6e2ccded934/Web%20app%20testing%20and%20privilage%20escalation/src/14.png)</br>
-![image alt](https://github.com/adin991/Penetration-testing/blob/0a1b0b29ab3abfb07fa42e46673de6e2ccded934/Web%20app%20testing%20and%20privilage%20escalation/src/15.png)</br>
+![image alt](https://github.com/adin991/Penetration-testing/blob/7177c02be9764d85dd772cdf0d2be9c2dac2f851/Web%20app%20testing%20and%20privilage%20escalation/src/17.1.png)</br>
 
 
 ![image alt]()</br>
