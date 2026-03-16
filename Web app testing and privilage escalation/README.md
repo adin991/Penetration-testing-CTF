@@ -1,4 +1,4 @@
-In this set of tasks, the following:
+In this set of tasks, I done the following:
 
 brute forcing </br>
 hash cracking </br>
