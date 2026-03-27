@@ -41,6 +41,56 @@ wget --no-check-certificate https://cilj.com/fajl.txt
 ===============================================================
 
 
+===============================================================
 
-PHP nije dozvoljeno
+[COMMAND]: curl
+[IN USE]: curl [URL link]
+[DEFENITION]: curl is used for downloading content and etc from an URL link.
+[ADDITIONAL]: none
 
+[EXAMPLES]:
+
+# sending with JSON
+curl -X POST http://example.com/api/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"admin123"}'
+
+# downloading file
+curl -O http://example.com/file.txt
+
+# ignoring SSL certificate and + verbose
+curl -kv https://example.com
+
+# with bearer token
+curl -H "Authorization: Bearer TOKEN" http://example.com/api/users
+
+===============================================================
+
+===============================================================
+
+[COMMAND]: find
+[IN USE]: find / -type f -user root -perm -u=s 2>/dev/null
+[DEFENITION]: finding files or folders and etc in the system
+[ADDITIONAL]: none
+
+[EXAMPLES]:
+
+# 1. Find a file by name anywhere on the system
+find / -name "passwords.txt" 2>/dev/null
+
+# 2. Find all files with SUID bit set (privilege escalation)
+find / -perm -4000 2>/dev/null
+
+# 3. Find all writable files/directories (useful for exploitation)
+find / -writable -type f 2>/dev/null
+find / -writable -type d 2>/dev/null
+
+# 4. Find files owned by a specific user
+find / -user root -type f 2>/dev/null
+find / -user www-data -type f 2>/dev/null
+
+# 5. Find files by extension and display their contents
+find / -name "*.conf" -exec cat {} \; 2>/dev/null
+find / -name "*.log" -exec cat {} \; 2>/dev/null
+
+===============================================================
