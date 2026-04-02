@@ -1,0 +1,8 @@
+To su standardni folderi koje IIS (Internet Information Services) — Microsoftov web server — koristi za skladištenje i serviranje web stranica.
+
+Šta su oni tačno?
+inetpub (Internet Publication): To je glavni (root) folder za IIS. On se automatski kreira na C: disku čim instaliraš IIS na Windows. U njemu se nalaze svi podaci vezani za web servise, logove i aplikacije.
+
+wwwroot: Ovo je podfolder unutar inetpub koji predstavlja javni dio tvoje web stranice. Sve što staviš u ovaj folder postaje dostupno cijelom svijetu (ili mreži) putem browsera.
+
+Primjer: Ako staviš fajl slika.jpg u C:\inetpub\wwwroot, neko ga može vidjeti na adresi http://tvoja-ip-adresa/slika.jpg.

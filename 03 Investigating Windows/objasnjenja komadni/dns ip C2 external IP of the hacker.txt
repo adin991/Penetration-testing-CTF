@@ -1,0 +1,19 @@
+
+Gemini said
+Odlično! Pronašao si je u DNS Client Cache-u (privremena memorija sistema koja čuva adrese koje je kompjuter nedavno posjetio).
+
+IP adresa 76.32.97.132 je tvoj C2 (Command & Control) server. Evo zašto i kako smo znali da je hakerova:
+
+1. Šta ova adresa predstavlja?
+To je hakerova baza. Zamisli to kao "kontrolni toranj". Svaki put kada se onaj tvoj zakazani zadatak (falshupdate22) pokrene svake 2 minute, on koristi nc.ps1 da se poveže na ovu adresu.
+
+Mašina pošalje signal: "Tu sam, šta treba da uradim?"
+
+Haker sa te adrese šalje komande (npr. "Daj mi lozinke", "Obriši ovaj fajl", itd.).
+
+2. Kako znamo da je hakerova?
+Nepoznat identitet: Legitimne adrese koje vidiš na listi (poput google.com ili microsoft.com) pripadaju poznatim servisima. Adresa 76.32.97.132 nema ime domene pored sebe u kešu ili vodi ka sumnjivom izvoru.
+
+Mrežna aktivnost (Persistence): Pošto se tvoja skripta pokreće svake 2 minute, ta adresa će se stalno pojavljivati u DNS kešu kao "svježa", dok će ostale (koje si ti sam posjetio dok si surfao) polako nestajati.
+
+Korelacija: Na slici image_a5f2fa.png vidiš da se ta IP adresa pojavljuje odmah pored upita za https://www.google.com/search?q=virustotal.com. Haker je vjerovatno koristio tvoju mašinu da provjeri da li je njegov malware detektovan, ostavljajući tragove jednog za drugim.
