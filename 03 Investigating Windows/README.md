@@ -35,18 +35,61 @@ Here I found 2 ways to identify the file that was trying to run daily. (nc.ps1) 
 ![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/73d266148d9e7da426125e285ff1d11acd4c2272/03%20Investigating%20Windows/src/8.png) </br>
 ![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/73d266148d9e7da426125e285ff1d11acd4c2272/03%20Investigating%20Windows/src/ad-3.png) </br>
 
+So next thing I did is found the port where this file (nc.ps1) was listening. </br>
+In the next pictures, is where I tried to find it in many ways. </br>
+First tried to find the route of the nc.ps1 file (c:\TMP\) </br>
 
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/9.png) </br>
 
-![image_alt]() </br>
-![image_alt]() </br>
-![image_alt]() </br>
+Tried to find it in the content of the file "nc", see for patterns because -p is an alias for port, and netstat is used to see where the machine is connected to. </br>
 
-![image_alt]() </br>
-![image_alt]() </br>
-![image_alt]() </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/9.2.png) </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/9.3.png) </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/9.4.png) </br>
 
-![image_alt]() </br>
-![image_alt]() </br>
-![image_alt]() </br>
+Helpless at this point, but I remembered that the scheduled task "Clean file system" has an action nc.ps1, so I opened the scheduled task. Opened task "Clean file system" and found the port in the description. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/10.png) </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/11.png) </br>
+
+Also, from the PowerShell command terminal. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/ad-3.png) </br>
+
+Now I see if Jenny has the last logon. Never. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/12.png) </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/13.png) </br>
+
+During the compromise, Windows first assigns special privileges to a new logon here. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/14.png) </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/15.png) </br>
+
+So I know that he was able to go on this machine. Now I need to know how did he get through, so I go where is nc.ps1 in the TMP folder and see a weird name with .exe extension. This is the most popular open-source post-exploitation tool that extracts plaintext passwords, password hashes, and PIN codes directly from Windows system memory. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/16.png) </br>
+
+Attackers external control and command servers' IP, in the following pattern of an IP adresses but with no success. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/18.png) </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/19.png) </br>
+
+I found it in DNS cache, how i know this is the right IP adress? Basically is without a name. If it is legitimate, it would have a name. [76.32.97.132]
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/20.png) </br>
+
+The extension name of the shell is uploaded via the server's website. Is .jsp extension. I found it on wwwroot, which is designed for everyone who can access an IP address and a route. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/21.png) </br>
+
+Last port that the attacker oppened is 1337. </br>
+
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/22.png) </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/23.png) </br>
+
+DNS poisoning, google.com site was targeted  </br>
+![image_alt](https://github.com/adin991/Penetration-testing-CTF/blob/50959e1713e8cca2b74266de32b48aa7887a96a3/03%20Investigating%20Windows/src/24.png) </br>
+
 
 
